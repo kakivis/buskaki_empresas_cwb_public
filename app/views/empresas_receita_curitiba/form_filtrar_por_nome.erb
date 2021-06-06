@@ -1,0 +1,13 @@
+<div class="form-busca">
+  <h4>Busca por nome</h4>
+
+  <%= form_with url: filtrar_por_nome_path, local: true, method: :get do |form| %>
+    <%= form.label :query, "Nome:" %>
+    <%= form.text_field :nome %>
+    <%= form.submit "Buscar" %>
+  <% end %>
+
+  <div style="margin-top: 20px">
+    <%= link_to "Buscar avançada", form_busca_avancada_path %>
+  </div>
+</div>

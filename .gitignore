@@ -65,3 +65,14 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
+
+# IDE
+.idea
+
+# script banco
+start_ssh_connection.sh
+chave_c3sl_linux
+/config/initializers/geocoder.rb
+/config/initializers/ssh_tunnel_initializer.rb
+Procfile
+x

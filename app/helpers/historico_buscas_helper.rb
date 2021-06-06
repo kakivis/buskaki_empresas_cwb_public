@@ -1,0 +1,2 @@
+module HistoricoBuscasHelper
+end

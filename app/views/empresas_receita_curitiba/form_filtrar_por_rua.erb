@@ -1,0 +1,9 @@
+<div class="form-busca">
+  <h4>Busca por rua</h4>
+
+  <%= form_with url: filtrar_por_rua_path, local: true, method: :get do |form| %>
+    <%= form.label :query, "Endereço:" %>
+    <%= form.text_field :endereco %>
+    <%= form.submit "Buscar" %>
+  <% end %>
+</div>

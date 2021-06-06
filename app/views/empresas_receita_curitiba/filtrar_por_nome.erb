@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<div id="map-div">
+  <div id="map" style='width: 400px; height: 300px;'></div>
+</div>
+
+<%== pagy_bootstrap_nav(@pagy) %>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Cnpj</th>
+      <th>Nome Empresarial</th>
+      <th>Nome Fantasia</th>
+      <th>Endereço</th>
+      <th>Bairro</th>
+      <th>Cep</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empresas_receita_curitibas.each do |empresas_receita_curitiba| %>
+      <tr>
+        <td><%= empresas_receita_curitiba.cnpj %></td>
+        <td><%= empresas_receita_curitiba.nomeempresarial %></td>
+        <td><%= empresas_receita_curitiba.nomefantasia %></td>
+        <td><%= formatar_endereco(empresas_receita_curitiba) %></td>
+        <td><%= empresas_receita_curitiba.bairro %></td>
+        <td><%= empresas_receita_curitiba.cep %></td>
+        <td><%= link_to "Exibir", get_by_cnpj_path(:cnpj => empresas_receita_curitiba.cnpj) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%== pagy_bootstrap_nav(@pagy) %>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google', {markers:
+            {clusterer: { gridSize: 60, maxZoom: 20}}});
+    handler.buildMap({ provider: {maxZoom: 20}, internal: {id: 'map'}}, function(){
+        let markers_json_list = [];
+        <% @empresas_receita_curitibas.each do |empresa| %>
+            markers_json_list.push({
+                "lat": <%= empresa.lat %>,
+                "lng": <%= empresa.lng %>,
+                "picture": {
+                    "width":  32,
+                    "height": 32
+                },
+                "infowindow": "<%= empresa.cnpj %> - <%= empresa.nomefantasia %>"
+            })
+        <% end %>
+        markers = handler.addMarkers(markers_json_list);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+    });
+</script>

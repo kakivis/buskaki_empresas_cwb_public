@@ -1,0 +1,202 @@
+<p id="notice"><%= notice %></p>
+<h4 id="titulo-empresa-show"><%= @empresa_receita_curitiba.nomefantasia %></h4>
+<div id="empresa-show">
+  <div id="empresa-show-left">
+    <% unless @empresa_receita_curitiba.cnpj.nil?  || @empresa_receita_curitiba.cnpj.empty? %>
+      <p>
+            <strong>CNPJ:</strong>
+        <%=  @empresa_receita_curitiba.cnpj  %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.identificadormatrizfilial.nil?  || @empresa_receita_curitiba.identificadormatrizfilial.empty? %>
+      <p>
+        <strong>Matriz ou filial:</strong>
+        <%= @empresa_receita_curitiba.identificadormatrizfilial %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.nomeempresarial.nil?  || @empresa_receita_curitiba.nomeempresarial.empty? %>
+      <p>
+        <strong>Nome empresarial:</strong>
+        <%= @empresa_receita_curitiba.nomeempresarial %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.nomefantasia.nil?  || @empresa_receita_curitiba.nomefantasia.empty? %>
+      <p>
+        <strong>Nome fantasia:</strong>
+        <%= @empresa_receita_curitiba.nomefantasia %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.situacaocadastral.nil?  || @empresa_receita_curitiba.situacaocadastral.empty? %>
+      <p>
+        <strong>Situação cadastral:</strong>
+        <%= @empresa_receita_curitiba.situacaocadastral %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.motivosituacaocadastral.nil?  || @empresa_receita_curitiba.motivosituacaocadastral.empty? %>
+      <p>
+        <strong>Motivo da situação cadastral:</strong>
+        <%= @empresa_receita_curitiba.motivosituacaocadastral %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.nomepais.nil?  || @empresa_receita_curitiba.nomepais.empty? %>
+      <p>
+        <strong>País:</strong>
+        <%= @empresa_receita_curitiba.nomepais %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.codigonaturezajuridica.nil?  || @empresa_receita_curitiba.codigonaturezajuridica.empty? %>
+      <p>
+        <strong>Codigo da natureza jurídica:</strong>
+        <%= @empresa_receita_curitiba.codigonaturezajuridica %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.datainicioatividade.nil?  || @empresa_receita_curitiba.datainicioatividade.empty? %>
+      <p>
+        <strong>Inicio das atividades:</strong>
+        <%= @empresa_receita_curitiba.datainicioatividade %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.cnaefiscal.nil?  || @empresa_receita_curitiba.cnaefiscal.empty? %>
+      <p>
+        <strong>CNAE Fiscal:</strong>
+        <%= @empresa_receita_curitiba.cnaefiscal %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.logradouro.nil?  || @empresa_receita_curitiba.logradouro.empty? %>
+      <p>
+        <strong>Endereço:</strong>
+        <%= formatar_endereco(@empresa_receita_curitiba) %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.complemento.nil?  || @empresa_receita_curitiba.complemento.empty? %>
+      <p>
+        <strong>Complemento:</strong>
+        <%= @empresa_receita_curitiba.complemento %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.bairro.nil?  || @empresa_receita_curitiba.bairro.empty? %>
+      <p>
+        <strong>Bairro:</strong>
+        <%= @empresa_receita_curitiba.bairro %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.cep.nil?  || @empresa_receita_curitiba.cep.empty? %>
+      <p>
+        <strong>Cep:</strong>
+        <%= @empresa_receita_curitiba.cep %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.uf.nil?  || @empresa_receita_curitiba.uf.empty? %>
+      <p>
+        <strong>UF:</strong>
+        <%= @empresa_receita_curitiba.uf %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.codigomunicipal.nil?  || @empresa_receita_curitiba.codigomunicipal.empty? %>
+      <p>
+        <strong>Código municipal:</strong>
+        <%= @empresa_receita_curitiba.codigomunicipal %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.municipio.nil?  || @empresa_receita_curitiba.municipio.empty? %>
+      <p>
+        <strong>Município:</strong>
+        <%= @empresa_receita_curitiba.municipio %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.telefone1.nil?  || @empresa_receita_curitiba.telefone1.empty? %>
+      <p>
+        <strong>Telefone:</strong>
+        <%= "(#{@empresa_receita_curitiba.dddtelefone1})#{@empresa_receita_curitiba.telefone1}" %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.emailcontribuinte.nil?  || @empresa_receita_curitiba.emailcontribuinte.empty? %>
+      <p>
+        <strong>Email do contribuinte:</strong>
+        <%= @empresa_receita_curitiba.emailcontribuinte %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.qualificacaoresponsavel.nil?  || @empresa_receita_curitiba.qualificacaoresponsavel.empty? %>
+      <p>
+        <strong>Qualificação do responsável:</strong>
+        <%= @empresa_receita_curitiba.qualificacaoresponsavel %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.capitalsocial.nil?  || @empresa_receita_curitiba.capitalsocial.empty? %>
+      <p>
+        <strong>Capital social:</strong>
+        <%= @empresa_receita_curitiba.capitalsocial %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.porteempresa.nil?  || @empresa_receita_curitiba.porteempresa.empty? %>
+      <p>
+        <strong>Porte da empresa:</strong>
+        <%= @empresa_receita_curitiba.porteempresa %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.opcaosimples.nil?  || @empresa_receita_curitiba.opcaosimples.empty? %>
+      <p>
+        <strong>Optante simples nacional:</strong>
+        <%= @empresa_receita_curitiba.opcaosimples %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.opcaomei.nil?  || @empresa_receita_curitiba.opcaomei.empty? %>
+      <p>
+        <strong>MEI - Micro empresário individual:</strong>
+        <%= @empresa_receita_curitiba.opcaomei %>
+      </p>
+    <% end %>
+
+    <% unless @empresa_receita_curitiba.situacaoespecial.nil?  || @empresa_receita_curitiba.situacaoespecial.empty? %>
+      <p>
+        <strong>Situação especial:</strong>
+        <%= @empresa_receita_curitiba.situacaoespecial %>
+      </p>
+    <% end %>
+  </div>
+  <div id="empresa-show-right" style='width: 800px;'>
+    <div id="map" style='width: 400px; height: 300px;'></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {maxZoom: 18}, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers([
+            {
+                "lat": <%= @empresa_receita_curitiba.lat %>,
+                "lng": <%= @empresa_receita_curitiba.lng %>,
+                "picture": {
+                    "width":  32,
+                    "height": 32
+                },
+                "infowindow": "<%= @empresa_receita_curitiba.nomefantasia %>"
+            }
+        ]);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+    });
+</script>

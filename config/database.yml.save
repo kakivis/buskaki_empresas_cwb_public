@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  template: template_postgis
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: postread
+  password: PostRead
+  schema_search_path: 'public, "DADOS"'
+  port: 5435
+
+development:
+  <<: *default
+  database: bigsea
+
+test:
+  <<: *default
+  database: app_test
+
+production:
+  <<: *default
+  database: bigsea

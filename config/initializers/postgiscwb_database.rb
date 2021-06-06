@@ -1,0 +1,1 @@
+POSTGISCWB_DB = YAML.load_file(File.join(Rails.root, "config", "postgiscwb_database.yml"))[Rails.env.to_s]

@@ -1,0 +1,15 @@
+<div class="form-busca">
+  <h4>Busca avancada</h4>
+
+  <%= form_with url: busca_avancada_path, local: true, method: :get do |form| %>
+    <%= form.label :query, "Nome:" %>
+    <%= form.text_field :nome %>
+    <%= form.label :query, "Bairro:" %>
+    <%= form.text_field :bairro %>
+    <%= form.label :query, "Endereço:" %>
+    <%= form.text_field :rua %>
+    <%= form.label :query, "CEP:" %>
+    <%= form.text_field :cep %>
+    <%= form.submit "Buscar" %>
+  <% end %>
+</div>

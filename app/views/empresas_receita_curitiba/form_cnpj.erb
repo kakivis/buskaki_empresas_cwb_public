@@ -1,0 +1,9 @@
+<div class="form-busca">
+  <h4>Busca por CNPJ</h4>
+
+  <%= form_with url: get_by_cnpj_path, local: true, method: :get do |form| %>
+    <%= form.label :query, "CNPJ:" %>
+    <%= form.text_field :cnpj %>
+    <%= form.submit "Buscar" %>
+  <% end %>
+</div>

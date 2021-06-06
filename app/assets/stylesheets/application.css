@@ -1,0 +1,116 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap
+ *= require_tree .
+ *= require_self
+ */
+
+.login-nav {
+    float: right;
+}
+
+.login-nav a {
+    font-size: 20px;
+    text-decoration: none;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    padding: 20px 0;
+    margin: 0 5px;
+}
+.login-nav a:hover {
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    padding: 6px 0;
+    background-color: #e2e0e0;
+}
+
+#login-form {
+    display: table-cell;
+}
+
+#login-div {
+    position: absolute;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -160px 0 0 -135px;
+}
+
+#menus-div {
+    margin-bottom: 5px;
+}
+
+.menu-links a {
+    margin-left: 5%;
+}
+
+.menu-links a:hover {
+    background-color: #e2e0e0;
+}
+
+#map-div {
+    margin: auto;
+    width: 35%;
+    padding: 10px;
+}
+
+a:hover {
+    background-color: #e2e0e0;
+}
+
+#empresa-show {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+}
+
+#empresa-show-left {
+    display:flex;
+    flex-direction:column;
+    margin-left: 20px;
+}
+
+#empresa-show-right {
+    display:flex;
+    flex-direction:column;
+    padding-left: 100px;
+}
+
+#titulo-empresa-show {
+    margin-left: 20px;
+}
+
+#meu-perfil-div {
+    position: absolute;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -120px 0 0 -60px;
+    border: 1px solid #ced4da;
+    padding: 40px;
+}
+
+.form-busca {
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+#criar-conta-form {
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+#criar-conta-form form {
+    display: table-cell;
+    padding: 20px;
+}
