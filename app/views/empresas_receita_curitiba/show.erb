@@ -183,20 +183,22 @@
 </div>
 
 <script type="text/javascript">
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {maxZoom: 18}, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers([
-            {
-                "lat": <%= @empresa_receita_curitiba.lat %>,
-                "lng": <%= @empresa_receita_curitiba.lng %>,
-                "picture": {
-                    "width":  32,
-                    "height": 32
-                },
-                "infowindow": "<%= @empresa_receita_curitiba.nomefantasia %>"
-            }
-        ]);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-    });
+    var map = L.map('map').setView({lon: 0, lat: 0}, 2);
+
+    // add the OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
+
+    // show the scale bar on the lower left corner
+    L.control.scale().addTo(map);
+    var arrayOfLatLngs = []
+    L.marker({
+        lon: <%= @empresa_receita_curitiba.lng %>,
+        lat: <%= @empresa_receita_curitiba.lat %>
+    }).bindPopup("<%= @empresa_receita_curitiba.cnpj %> - <%= @empresa_receita_curitiba.nomefantasia %>").addTo(map);
+    arrayOfLatLngs.push([<%= @empresa_receita_curitiba.lat %>, <%= @empresa_receita_curitiba.lng %>])
+    var bounds = new L.LatLngBounds(arrayOfLatLngs);
+    map.fitBounds(bounds);
 </script>

@@ -91,7 +91,8 @@ class EmpresasReceitaCuritibaController < ApplicationController
       endereco_georreferenciado = results.select(&filtrar_endereco_por_cep).first&.data
       if endereco_georreferenciado.nil?
         filtrar_endereco_por_numero = lambda { |result| result.data["name"].include? empresa.numero }
-        endereco_georreferenciado = results.select(&filtrar_endereco_por_numero).first&.data ? results.select(&filtrar_endereco_por_numero).first&.data : results.first.data
+        endereco_georreferenciado = results.select(&filtrar_endereco_por_numero).first&.data ?
+                                      results.select(&filtrar_endereco_por_numero).first&.data : results.first&.data
       end
     end
     unless results.blank?

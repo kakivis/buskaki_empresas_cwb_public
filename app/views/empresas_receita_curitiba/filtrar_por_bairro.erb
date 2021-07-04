@@ -35,23 +35,26 @@
 <%== pagy_bootstrap_nav(@pagy) %>
 
 <script type="text/javascript">
-    handler = Gmaps.build('Google', {markers:
-            {clusterer: { gridSize: 60, maxZoom: 20}}});
-    handler.buildMap({ provider: {maxZoom: 20}, internal: {id: 'map'}}, function(){
-        let markers_json_list = [];
-        <% @empresas_receita_curitibas.each do |empresa| %>
-        markers_json_list.push({
-            "lat": <%= empresa.lat %>,
-            "lng": <%= empresa.lng %>,
-            "picture": {
-                "width":  32,
-                "height": 32
-            },
-            "infowindow": "<%= empresa.cnpj %> - <%= empresa.nomefantasia %>"
-        })
-        <% end %>
-        markers = handler.addMarkers(markers_json_list);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-    });
+    var map = L.map('map').setView({lon: 0, lat: 0}, 2);
+
+    // add the OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
+
+    // show the scale bar on the lower left corner
+    L.control.scale().addTo(map);
+    var arrayOfLatLngs = []
+    <% @empresas_receita_curitibas.each do |empresa| %>
+    <% unless empresa.lat.nil? %>
+    L.marker({
+        lon: <%= empresa.lng %>,
+        lat: <%= empresa.lat %>
+    }).bindPopup("<%= empresa.cnpj %> - <%= empresa.nomefantasia %>").addTo(map);
+    arrayOfLatLngs.push([<%= empresa.lat %>, <%= empresa.lng %>])
+    <% end %>
+    <% end %>
+    var bounds = new L.LatLngBounds(arrayOfLatLngs);
+    map.fitBounds(bounds);
 </script>
